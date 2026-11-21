@@ -47,4 +47,8 @@
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
     items.forEach(function (el) { io.observe(el); });
   } else { items.forEach(function (el) { el.classList.add('in'); }); }
+  var rm = document.querySelector('.rm'), de = document.documentElement;
+  function setRm(on) { de.toggleAttribute('data-rm', on); if (rm) { rm.setAttribute('aria-pressed', String(on)); rm.textContent = on ? 'Movimento reduzido (ligado)' : 'Reduzir movimento'; } try { localStorage.setItem('rm', on ? '1' : '0'); } catch (e) {} }
+  try { if (localStorage.getItem('rm') === '1') setRm(true); } catch (e) {}
+  if (rm) rm.addEventListener('click', function () { setRm(rm.getAttribute('aria-pressed') !== 'true'); });
 })();

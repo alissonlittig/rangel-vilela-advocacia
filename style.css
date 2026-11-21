@@ -2,12 +2,12 @@
 @font-face{font-family:"Spectral";src:url(fonts/Spectral500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:"Public Sans";src:url(fonts/PublicSans.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{
-  --green:#12332B;--green2:#1F4A3E;--ink:#14201C;--ink2:#46524D;--paper:#ECEAE4;--paper2:#E1DED5;--brass:#B59A62;--brass-d:#7C6633;--oxb:#6B2A2A;
-  --line:#CFCBBF;--r:6px;--m:20px;--max:1200px;--ease:cubic-bezier(.23,1,.32,1);
+  --green:#12332B;--green2:#1F4A3E;--ink:#14201C;--ink2:#46524D;--paper:#E6EAE5;--paper2:#DBE1DA;--brass:#B59A62;--brass-d:#7C6633;--oxb:#6B2A2A;
+  --line:#C3CBC2;--r:6px;--m:20px;--max:1200px;--ease:cubic-bezier(.23,1,.32,1);
   --fd:"Spectral",Georgia,serif;--ft:"Public Sans",system-ui,sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+html{scroll-padding-top:84px;scroll-padding-bottom:96px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.62 var(--ft);padding-bottom:84px;text-wrap:pretty}
 svg{display:block;max-width:100%}a{color:inherit}
 h1,h2,h3{font-family:var(--fd);font-weight:500;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.015em}
@@ -21,12 +21,12 @@ h2{font-size:clamp(1.9rem,6vw,3rem);max-width:20ch}
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--m)}
 
 .top{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:12px;padding:10px var(--m);background:rgb(18 51 43/.97);color:var(--paper);border-bottom:1px solid rgb(181 154 98/.4)}
-.brand{margin-right:auto;text-decoration:none;display:flex;align-items:center;gap:12px}
+.brand{min-height:44px;margin-right:auto;text-decoration:none;display:flex;align-items:center;gap:12px}
 .mono{font:500 1.15rem/1 var(--fd);border:1px solid var(--brass);color:var(--brass);padding:9px 8px;letter-spacing:.02em}
 .mono i{font-style:normal;font-size:.8em;margin:0 1px}
 .nm{font:500 1.2rem/1 var(--fd);display:flex;flex-direction:column;white-space:nowrap}
 @media (max-width:767px){.top .btn-sm{display:none}.top .burger{margin-left:0}}
-.nm small{font:500 .62rem/1 var(--ft);letter-spacing:.2em;text-transform:uppercase;margin-top:5px;color:#B8C8C2}
+.nm small{font:500 .7rem/1 var(--ft);letter-spacing:.2em;text-transform:uppercase;margin-top:5px;color:#B8C8C2}
 .nav{display:none}
 .nav.open{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:var(--green);padding:8px var(--m) 20px;border-bottom:1px solid rgb(181 154 98/.4)}
 .nav a{padding:14px 0;text-decoration:none;font-weight:500;border-bottom:1px solid rgb(236 234 228/.15);min-height:48px}
@@ -53,14 +53,14 @@ h2{font-size:clamp(1.9rem,6vw,3rem);max-width:20ch}
 @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
 .shelf-wrap{margin-top:34px}
 .shelf{display:flex;align-items:flex-end;gap:5px;padding:0 6px;overflow:hidden}
-.spine{position:relative;flex:1 1 0;max-width:86px;border:0;border-radius:3px 3px 0 0;color:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;min-height:44px;transition:transform .4s var(--ease),box-shadow .3s;outline-offset:2px}
+.spine{position:relative;flex:1 1 0;max-width:86px;border:0;border-radius:3px 3px 0 0;color:var(--paper);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;min-height:44px;transition:transform .35s var(--ease);outline-offset:2px;min-width:44px}
 .spine span{writing-mode:vertical-rl;transform:rotate(180deg);font:500 clamp(.85rem,3.4vw,1.05rem)/1.1 var(--fd);letter-spacing:.02em;padding:14px 0;white-space:nowrap}
 .spine::before,.spine::after{content:"";position:absolute;left:0;right:0;height:5px;border-top:1px solid var(--brass);border-bottom:1px solid var(--brass);opacity:.8}
 .spine::before{top:14px}.spine::after{bottom:14px}
 .s1{height:270px;background:#1F4A3E}.s2{height:236px;background:#6B2A2A}.s3{height:300px;background:#2B5E4F}
-.s4{height:250px;background:#8A7544;color:#12251F}.s4::before,.s4::after{border-color:#12251F}
+.s4{height:250px;background:#6F5B2D}
 .s5{height:280px;background:#173D33}.s6{height:224px;background:#4A1F1F}
-.spine[aria-pressed=true]{transform:translateY(-16px);box-shadow:0 0 0 2px var(--brass)}
+.spine[aria-pressed=true]{transform:translateY(-16px);outline:2px solid var(--brass)}
 .board{height:12px;background:#0B221C;border-top:2px solid var(--brass);margin-top:0}
 .panel{margin-top:26px;background:var(--paper);color:var(--ink);padding:26px 22px 28px;border-radius:var(--r)}
 .panel h2{font-size:clamp(1.7rem,5vw,2.3rem);max-width:none}
@@ -118,7 +118,7 @@ address{font:normal 500 1.35rem/1.4 var(--fd);margin:18px 0}
   :root{--m:56px}
   .burger{display:none}
   .nav{display:flex;gap:30px;margin-right:12px}
-  .nav a{border:0;padding:0;min-height:0;font-size:.96rem;text-decoration:none}
+  .nav a{border:0;padding:10px 0;min-height:0;font-size:.96rem;text-decoration:none}
   .nav a:hover{color:var(--brass)}
   .hero{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;padding:64px var(--m) 80px;max-width:none}
   .hero>*{margin:0}
@@ -134,3 +134,15 @@ address{font:normal 500 1.35rem/1.4 var(--fd);margin:18px 0}
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .js .rv{opacity:1;transform:none}
 }
+
+.btn-sm{order:2}.burger{order:3;flex:none}
+.rm{min-height:44px;padding:0 18px;border:1px solid currentColor;border-radius:999px;background:transparent;color:inherit;font:inherit;font-size:.9rem;cursor:pointer}
+.rm[aria-pressed=true]{border-width:2px;font-weight:700}
+[data-rm] *,[data-rm] *::before,[data-rm] *::after{animation:none!important;transition-duration:.01ms!important}
+[data-rm] .rv{opacity:1!important;transform:none!important}
+@media (max-width:360px){.shelf{gap:3px}}
+.map{background:#12332B}.map text{color:#ECEAE4}
+.foot :focus-visible{outline-color:var(--brass)}
+.spine:focus-visible{outline:3px solid #fff;outline-offset:3px;z-index:2}
+.panel{contain:layout style;min-height:360px}.shelf{contain:layout}
+@media (min-width:980px){.panel{min-height:0}}
